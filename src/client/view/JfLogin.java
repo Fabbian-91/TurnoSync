@@ -188,7 +188,7 @@ public class JfLogin extends javax.swing.JFrame {
                     this,
                     result.message,
                     "Login Correcto",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+                    JOptionPane.INFORMATION_MESSAGE
             );
 
         } else {
@@ -196,9 +196,10 @@ public class JfLogin extends javax.swing.JFrame {
                     this,
                     result.message,
                     "Error de Login",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
+                    JOptionPane.ERROR_MESSAGE
             );
         }
+        limpiar();
     }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
@@ -219,6 +220,13 @@ public class JfLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_LbOlvidarMouseClicked
 
+    /**
+     * Metodo para limpiar los campos
+     */
+    private void limpiar(){
+        TfUser.setText("");
+        TfPassword.setText("");
+    }
     /**
      * @param args the command line arguments
      */
