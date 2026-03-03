@@ -13,7 +13,6 @@ public class Cliente {
     //Atributos del cliente
     private int idCliente;
     private String nombre;
-    private String telefono;
     private String email;
 
     //Contructor vacío
@@ -28,10 +27,9 @@ public class Cliente {
      * @param telefono
      * @param email
      */
-    public Cliente(int idCliente, String nombre, String telefono, String email) {
+    public Cliente(int idCliente, String nombre, String email) {
         this.idCliente = idCliente;
         this.nombre = nombre;
-        this.telefono = telefono;
         this.email = email;
     }
 
@@ -51,15 +49,7 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
+    
     public String getEmail() {
         return email;
     }

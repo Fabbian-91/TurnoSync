@@ -13,8 +13,12 @@ public class Usuario {
     private int idUsuario;
     private String username;
     private String passwordHash;
+    private String salt;
+    private String telefono;
+    private String name;
     private Rol rol;
-    private String estado;
+    private EstadoUser estado;
+    
     
     //Atributos nulos
     private Cliente cliente;      
@@ -32,12 +36,14 @@ public class Usuario {
      * @param rol
      * @param estado 
      */
-    public Usuario(int idUsuario, String username, String passwordHash, Rol rol, String estado) {
-        this.idUsuario = idUsuario;
+    public Usuario(String username, String passwordHash,String telefono,String name,String salt) {
         this.username = username;
         this.passwordHash = passwordHash;
-        this.rol = rol;
-        this.estado = estado;
+        this.rol = Rol.EMPLEADO;
+        this.telefono=telefono;
+        this.name=name;
+        this.salt=salt;
+        this.estado = EstadoUser.ACTIVO;
     }
 
     // Getters y Setters
@@ -73,13 +79,14 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public String getEstado() {
+    public EstadoUser getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoUser estado) {
         this.estado = estado;
     }
+
 
     public Cliente getCliente() {
         return cliente;
@@ -97,4 +104,29 @@ public class Usuario {
         this.empleado = empleado;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    
 }

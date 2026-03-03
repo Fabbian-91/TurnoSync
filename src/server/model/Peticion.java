@@ -12,23 +12,34 @@ import java.time.LocalDateTime;
  */
 public class Peticion {
 
+    //Atributos de la petición
     private int idPeticion;
     private String tipo;
     private EstadoPeticion estado;
 
+    //Atributos de seguimietos
     private LocalDateTime creadaEn;
     private LocalDateTime procesadaEn;
     private LocalDateTime finalizadaEn;
 
+    //Atributos nulos
     private Usuario usuario;
-    private Turno turno;   // Puede ser null
+    private Turno turno;
     private String detalle;
 
     // Constructor vacío
     public Peticion() {
     }
 
-    // Constructor básico
+    /**
+     * Generar petición
+     *
+     * @param idPeticion
+     * @param tipo
+     * @param estado
+     * @param creadaEn
+     * @param usuario
+     */
     public Peticion(int idPeticion, String tipo, EstadoPeticion estado,
             LocalDateTime creadaEn, Usuario usuario) {
         this.idPeticion = idPeticion;
