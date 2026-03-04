@@ -107,6 +107,12 @@ public class RegisterUserController {
         return Result.ok("OK", email);
     }
 
+    /**
+     * Metodo para validar contraseña y confirmar contraseña
+     * @param c
+     * @param cc
+     * @return 
+     */
     private Result<Void> ValidarPassword(String c, String cc) {
         if (c == null || cc == null) {
             return Result.fail("La contraseña no puede ser null.");
@@ -125,7 +131,12 @@ public class RegisterUserController {
 
         return Result.ok("OK", null);
     }
-
+    
+    /**
+     * Metodo para validar el número de telefono
+     * @param n
+     * @return 
+     */
     private Result<String> validarNumber(String n) {
 
         if (n == null) {
@@ -150,7 +161,12 @@ public class RegisterUserController {
 
         return Result.ok("OK", number);
     }
-
+    
+    /**
+     * Metodo para validar el nombre
+     * @param na
+     * @return 
+     */
     private Result<String> validarName(String na) {
 
         if (na == null) {
