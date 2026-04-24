@@ -5,8 +5,10 @@
 package client.view;
 
 import client.Bootstrap.ClientBootstrap;
-import client.controller.LoginController;
+import client.sesion.AppSession;
 import javax.swing.JOptionPane;
+import client.controller.AuthController;
+
 
 /**
  *
@@ -15,14 +17,14 @@ import javax.swing.JOptionPane;
 public class JfLogin extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JfLogin.class.getName());
-    private final LoginController loginUserControler; //Generamos el login controller
+    private final AuthController authController;
 
     /**
      * Creates new form JfRegistro
      */
     public JfLogin() {
         initComponents();
-        this.loginUserControler = ClientBootstrap.builLoginController();//Lo inicializamos en la clase boostrap
+        this.authController = ClientBootstrap.buildAuthController();
     }
 
     /**
@@ -34,8 +36,6 @@ public class JfLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JpFondo = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         TfUser = new javax.swing.JTextField();
         BtnLogin = new javax.swing.JButton();
         LbOlvidar = new javax.swing.JLabel();
@@ -43,21 +43,12 @@ public class JfLogin extends javax.swing.JFrame {
         LbRegistrarse1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TfPassword = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
-
-        JpFondo.setBackground(new java.awt.Color(255, 255, 255));
-        JpFondo.setPreferredSize(new java.awt.Dimension(800, 500));
-        JpFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(400, 400));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TfUser.setBackground(new java.awt.Color(255, 255, 255));
         TfUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -69,9 +60,9 @@ public class JfLogin extends javax.swing.JFrame {
                 TfUserActionPerformed(evt);
             }
         });
-        jPanel2.add(TfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 250, 40));
+        getContentPane().add(TfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 250, 40));
 
-        BtnLogin.setBackground(new java.awt.Color(153, 0, 255));
+        BtnLogin.setBackground(new java.awt.Color(51, 102, 255));
         BtnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("Login");
@@ -81,7 +72,7 @@ public class JfLogin extends javax.swing.JFrame {
                 BtnLoginActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 250, 50));
+        getContentPane().add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 250, 50));
 
         LbOlvidar.setBackground(new java.awt.Color(255, 255, 255));
         LbOlvidar.setForeground(new java.awt.Color(0, 102, 255));
@@ -92,11 +83,12 @@ public class JfLogin extends javax.swing.JFrame {
                 LbOlvidarMouseClicked(evt);
             }
         });
-        jPanel2.add(LbOlvidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        getContentPane().add(LbOlvidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, -1));
 
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Don't have an account yet?");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 160, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, 160, 30));
 
         LbRegistrarse1.setBackground(new java.awt.Color(0, 51, 255));
         LbRegistrarse1.setForeground(new java.awt.Color(0, 102, 255));
@@ -107,100 +99,25 @@ public class JfLogin extends javax.swing.JFrame {
                 LbRegistrarse1MouseClicked(evt);
             }
         });
-        jPanel2.add(LbRegistrarse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, 30));
+        getContentPane().add(LbRegistrarse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 640, -1, 30));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("SYSTEM ACCESS");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         TfPassword.setBackground(new java.awt.Color(255, 255, 255));
         TfPassword.setText("Passwor");
         TfPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
-        jPanel2.add(TfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 250, 40));
+        getContentPane().add(TfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 250, 40));
 
-        JpFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 500));
-        JpFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/ImagenFondo.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 71, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-        );
-
-        JpFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 440, 470));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JpFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/image_360x680_high_dpi.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TfUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TfUserActionPerformed
-
-    /**
-     * Metodo para tomar datos ingresados del formulario y auntetificar al
-     * server
-     *
-     * @param evt
-     */
-    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        //Datos de formulario
-        String email = TfUser.getText();
-        char[] passArr = TfPassword.getPassword();
-        String pass = new String(passArr);
-
-        // Limpiamos el array por seguridad
-        java.util.Arrays.fill(passArr, '\0');
-
-        //Esperamos respuesta de los controladores y el server
-        var result = loginUserControler.login(email, pass);
-
-        //Validamos si el resultado fue ok y madamos mensaje al usuario
-        if (result.ok) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    result.message,
-                    "Login Correcto",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-
-        } else {
-            JOptionPane.showMessageDialog(
-                    this,
-                    result.message,
-                    "Error de Login",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
-        limpiar();
-    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * Metodo para registrar núevo usuarios
@@ -221,12 +138,63 @@ public class JfLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_LbOlvidarMouseClicked
 
     /**
+     * Metodo para tomar datos ingresados del formulario y auntetificar al
+     * server
+     *
+     * @param evt
+     */
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        //Datos de formulario
+        String email = TfUser.getText();
+        char[] passArr = TfPassword.getPassword();
+        String pass = new String(passArr);
+
+        // Limpiamos el array por seguridad
+        java.util.Arrays.fill(passArr, '\0');
+
+        //Esperamos respuesta de los controladores y el server
+        var result = authController.login(email, pass);
+
+        //Validamos si el resultado fue ok y madamos mensaje al usuario
+        if (result.ok) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    result.message,
+                    "Login Correcto",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            //Traesmos el MDI de sesion
+            MDIPrincipal principal = AppSession.getMainMDI();
+            //Dejamos de mostrar el formulario de login en pantalla
+            this.setVisible(false);
+            //Mostramos el principal
+
+            //Prueba del el App Session
+            System.out.println(AppSession.getName() + "\n" + AppSession.getUser() + "\n" + AppSession.getRol() + "\n");
+            principal.show();
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    result.message,
+                    "Error de Login",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+        limpiar();
+    }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void TfUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfUserActionPerformed
+
+    /**
      * Metodo para limpiar los campos
      */
-    private void limpiar(){
+    private void limpiar() {
         TfUser.setText("");
         TfPassword.setText("");
     }
+
     /**
      * @param args the command line arguments
      */
@@ -254,16 +222,12 @@ public class JfLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
-    private javax.swing.JPanel JpFondo;
     private javax.swing.JLabel LbOlvidar;
     private javax.swing.JLabel LbRegistrarse1;
     private javax.swing.JPasswordField TfPassword;
     private javax.swing.JTextField TfUser;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

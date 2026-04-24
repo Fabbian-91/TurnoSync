@@ -4,12 +4,16 @@
  */
 package server.model;
 
-/**
- *
- * @author Fabian
- */
-public class Usuario {
-    //Atributos del Usuario
+import common.enums.EstadoCuenta;
+import common.enums.Rol;
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+    // Identificador de version para poder enviar objetos por la red
+    private static final long serialVersionUID = 1L;
+
+    // Atributos principales del usuario
     private int idUsuario;
     private String username;
     private String passwordHash;
@@ -17,36 +21,51 @@ public class Usuario {
     private String telefono;
     private String name;
     private Rol rol;
-    private EstadoUser estado;
-    
-    
-    //Atributos nulos
-    private Cliente cliente;      
-    private Empleado empleado;    
-    
-    //Constructor vacío
+    private EstadoCuenta estado;
+
+    // Ids que relacionan al usuario con un cliente o empleado
+    private int idCliente;
+    private int idEmpleado;
+
+    // Constructor vacio para poder crear un usuario sin datos iniciales
     public Usuario() {
     }
-    
-    /**
-     * Generar Usuarios
-     * @param idUsuario
-     * @param username
-     * @param passwordHash
-     * @param rol
-     * @param estado 
-     */
-    public Usuario(String username, String passwordHash,String telefono,String name,String salt) {
+
+    // Constructor completo para crear un usuario con todos sus datos
+    public Usuario(int idUsuario, String username, String passwordHash, String salt, String telefono, String name, Rol rol, EstadoCuenta estado, int idCliente, int idEmpleado) {
+        this.idUsuario = idUsuario;
         this.username = username;
         this.passwordHash = passwordHash;
-        this.rol = Rol.EMPLEADO;
-        this.telefono=telefono;
-        this.name=name;
-        this.salt=salt;
-        this.estado = EstadoUser.ACTIVO;
+        this.salt = salt;
+        this.telefono = telefono;
+        this.name = name;
+        this.rol = rol;
+        this.estado = estado;
+        this.idCliente = idCliente;
+        this.idEmpleado = idEmpleado;
     }
 
-    // Getters y Setters
+    // Constructor por defecto para crear un usuario como empleado activo
+    public Usuario(String username, String passwordHash, String telefono, String name, String salt) {
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.telefono = telefono;
+        this.name = name;
+        this.salt = salt;
+        this.rol = Rol.EMPLEADO;
+        this.estado = EstadoCuenta.ACTIVO;
+    }
+
+    // Constructor para crear un usuario indicando el rol que va a tener
+    public Usuario(String username, String passwordHash, String telefono, String name, Rol rol) {
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.telefono = telefono;
+        this.name = name;
+        this.rol = rol;
+    }
+
+    // Metodos get y set para acceder y modificar los datos del usuario
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -79,29 +98,12 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public EstadoUser getEstado() {
+    public EstadoCuenta getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoUser estado) {
+    public void setEstado(EstadoCuenta estado) {
         this.estado = estado;
-    }
-
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
     }
 
     public String getSalt() {
@@ -127,6 +129,21 @@ public class Usuario {
     public void setName(String name) {
         this.name = name;
     }
- 
-    
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
 }
+

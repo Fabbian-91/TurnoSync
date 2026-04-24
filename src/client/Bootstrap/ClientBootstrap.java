@@ -4,46 +4,62 @@
  */
 package client.Bootstrap;
 
-/**
- *
- * @author Fabian
- */
-
-import client.controller.ForgetController;
-import client.controller.RegisterUserController;
-import client.controller.LoginController;
-import client.gateway.LocalServerGateway;
+import client.controller.AuthController;
+import client.controller.DashboardController;
+import client.controller.PeticionController;
+import client.controller.TurnoController;
+import client.controller.UserController;
 import client.gateway.ServerGateway;
-
-import server.cotroller.AuthController;
+import client.gateway.SocketServerGateway;
+import client.network.ClientGateway;
 
 public class ClientBootstrap {
     
+    //Comunicador con  el server
+    private static final ClientGateway client = new ClientGateway("localhost", 5000);
+    
+    //Puerta de acceso
+    private static final ServerGateway gateway = new SocketServerGateway(client);
+
+    //Metodos para inicializar los controladores del cliente con su socket y puerta
+    
     /**
-     * Metodo para inicializar la puerta de comunicación para cada registro
+     * Metodo para inicializar el auntentificador
      * @return 
      */
-    public static RegisterUserController buildRegisterController() {
-        AuthController authController = new AuthController();
-        ServerGateway gateway = new LocalServerGateway(authController);
-        return new RegisterUserController(gateway);
+    public static AuthController buildAuthController() {
+        return new AuthController(gateway);
     }
+    
     /**
-     * Metodo para inicializar la puerta de comunicación en cada login
+     * Metodo para inicializar el dashboard de bienvenida
      * @return 
      */
-    public static LoginController builLoginController(){
-        AuthController authController=new AuthController();
-        ServerGateway gateway= new LocalServerGateway(authController);
-        return new LoginController(gateway);
+    public static DashboardController buildDashboardController() {
+        return new DashboardController(gateway);
     }
+    
     /**
-     * Metodo para inicializar la puert de comunicación cada ves que se olvide una contraseña
+     * Metodo para inicializar el controlador del usuario
      * @return 
      */
-    public static ForgetController builLoginControllerForget(){
-        AuthController authController=new AuthController();
-        ServerGateway gateway= new LocalServerGateway(authController);
-        return new ForgetController(gateway);
+    public static UserController buildUserController() {
+        return new UserController(gateway);
+    }
+    
+    /**
+     * Metodo para inicializar el controlador del tuno
+     * @return 
+     */
+    public static TurnoController buildTurnoController() {
+        return new TurnoController(gateway);
+    }
+    
+    /**
+     * Metodo para iniciaizar el controlador de peticiones
+     * @return 
+     */
+    public static PeticionController buildPeticionController() {
+        return new PeticionController(gateway);
     }
 }

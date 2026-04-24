@@ -5,8 +5,9 @@
 package client.view;
 
 import client.Bootstrap.ClientBootstrap;
-import client.controller.ForgetController;
 import javax.swing.JOptionPane;
+import client.controller.AuthController;
+import common.dto.Result;
 
 /**
  *
@@ -16,7 +17,7 @@ public class JfOlvidar extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JfOlvidar.class.getName());
     private JfLogin login;
-    private final ForgetController forgetUserController;
+    private final AuthController authController;
 
     /**
      * Creates new form JfOlvidar
@@ -24,7 +25,7 @@ public class JfOlvidar extends javax.swing.JFrame {
     JfOlvidar(JfLogin aThis) {
         initComponents();
         this.login = aThis;
-        this.forgetUserController = ClientBootstrap.builLoginControllerForget();
+        this.authController = ClientBootstrap.buildAuthController();
 
     }
 
@@ -37,12 +38,11 @@ public class JfOlvidar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
         TfName = new javax.swing.JTextField();
         BtnLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         TfUser = new javax.swing.JTextField();
-        TfPhone = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Recuperar");
@@ -52,10 +52,7 @@ public class JfOlvidar extends javax.swing.JFrame {
                 formWindowClosed(evt);
             }
         });
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(400, 400));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TfName.setBackground(new java.awt.Color(255, 255, 255));
         TfName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -67,9 +64,9 @@ public class JfOlvidar extends javax.swing.JFrame {
                 TfNameActionPerformed(evt);
             }
         });
-        jPanel2.add(TfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 250, 40));
+        getContentPane().add(TfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 250, 40));
 
-        BtnLogin.setBackground(new java.awt.Color(153, 0, 255));
+        BtnLogin.setBackground(new java.awt.Color(51, 102, 255));
         BtnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("Update");
@@ -79,12 +76,13 @@ public class JfOlvidar extends javax.swing.JFrame {
                 BtnLoginActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 250, 50));
+        getContentPane().add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 250, 50));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Recover Password");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         TfUser.setBackground(new java.awt.Color(255, 255, 255));
         TfUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -96,36 +94,10 @@ public class JfOlvidar extends javax.swing.JFrame {
                 TfUserActionPerformed(evt);
             }
         });
-        jPanel2.add(TfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 250, 40));
+        getContentPane().add(TfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 250, 40));
 
-        TfPhone.setBackground(new java.awt.Color(255, 255, 255));
-        TfPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TfPhone.setText("   Phone Number");
-        TfPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
-        TfPhone.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        TfPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TfPhoneActionPerformed(evt);
-            }
-        });
-        jPanel2.add(TfPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 250, 40));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/image3_360x680_high_dpi.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -135,34 +107,30 @@ public class JfOlvidar extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
-    private void TfPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TfPhoneActionPerformed
-
     private void TfUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TfUserActionPerformed
 
     /**
      * Metodo para el cada evento click del boton del formulrio
-     * @param evt 
+     *
+     * @param evt
      */
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
         //Traer datos
         String name = TfName.getText();
-        String phone = TfPhone.getText();
         String user = TfUser.getText();
-        
+
         //Esperar respues
-        var result = forgetUserController.update(user, name, phone);
-        
+        Result<Void> result = authController.recoverPassword(user, name);
+
         //Validar respuesta
         if (!result.ok) {
             JOptionPane.showMessageDialog(this, result.message, "Actualizar", JOptionPane.ERROR_MESSAGE);
             limpiarCampos();
             return;
         }
-        
+
         //Mostrar respuesta
         JOptionPane.showMessageDialog(this, result.message, "Actualizar", JOptionPane.INFORMATION_MESSAGE);
         limpiarCampos();
@@ -177,7 +145,6 @@ public class JfOlvidar extends javax.swing.JFrame {
      */
     private void limpiarCampos() {
         TfUser.setText("");
-        TfPhone.setText("");
         TfName.setText("");
     }
 
@@ -209,9 +176,8 @@ public class JfOlvidar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
     private javax.swing.JTextField TfName;
-    private javax.swing.JTextField TfPhone;
     private javax.swing.JTextField TfUser;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,23 +5,20 @@
 package client.view;
 
 import client.Bootstrap.ClientBootstrap;
-import client.controller.RegisterUserController;
-import client.gateway.LocalServerGateway;
-import client.gateway.ServerGateway;
 import javax.swing.JOptionPane;
-import server.cotroller.AuthController;
-
-
+import client.controller.AuthController;
+import common.dto.Result;
 
 /**
  *
  * @author Fabian
  */
 public class JfRegistrar extends javax.swing.JFrame {
+
     //Atributos de la clase
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JfRegistrar.class.getName());
     private JfLogin login;//Login para guardar el formulario de logueo
-    private final RegisterUserController registerUserController;//Generamos el controlador de registro de la cava client
+    private final AuthController authController;//Generamos el controlador de registro de la cava client
 
     /**
      * Para generar núevo formulario de registro
@@ -30,7 +27,7 @@ public class JfRegistrar extends javax.swing.JFrame {
         initComponents();//Iniciamos componetes
         //Guardamos el formulario enviado por parametro
         this.login = login;
-        this.registerUserController = ClientBootstrap.buildRegisterController();
+        this.authController = ClientBootstrap.buildAuthController();
     }
 
     /**
@@ -42,18 +39,16 @@ public class JfRegistrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JpFondo = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         BtnRegistrar = new javax.swing.JButton();
         TfEmail = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         TfConfig = new javax.swing.JPasswordField();
         TfPassword = new javax.swing.JPasswordField();
         TfName = new javax.swing.JTextField();
-        TfPhoneNumeber = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TfPhoneNumeber = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Register");
@@ -63,15 +58,9 @@ public class JfRegistrar extends javax.swing.JFrame {
                 formWindowClosed(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JpFondo.setBackground(new java.awt.Color(255, 255, 255));
-        JpFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(400, 400));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BtnRegistrar.setBackground(new java.awt.Color(153, 0, 255));
+        BtnRegistrar.setBackground(new java.awt.Color(51, 102, 255));
         BtnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         BtnRegistrar.setText("Register");
@@ -81,11 +70,11 @@ public class JfRegistrar extends javax.swing.JFrame {
                 BtnRegistrarActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 250, 50));
+        getContentPane().add(BtnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 250, 50));
 
         TfEmail.setBackground(new java.awt.Color(255, 255, 255));
         TfEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TfEmail.setText("   Email");
+        TfEmail.setText("  Email");
         TfEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         TfEmail.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         TfEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -93,122 +82,56 @@ public class JfRegistrar extends javax.swing.JFrame {
                 TfEmailActionPerformed(evt);
             }
         });
-        jPanel2.add(TfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 250, 40));
+        getContentPane().add(TfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 250, 40));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("USER REGISTRATION");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         TfConfig.setBackground(new java.awt.Color(255, 255, 255));
         TfConfig.setText("jPasswordField1");
         TfConfig.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        jPanel2.add(TfConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 250, 40));
+        getContentPane().add(TfConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 250, 40));
 
         TfPassword.setBackground(new java.awt.Color(255, 255, 255));
         TfPassword.setText("jPasswordField1");
         TfPassword.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        jPanel2.add(TfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 250, 40));
+        getContentPane().add(TfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 250, 40));
 
         TfName.setBackground(new java.awt.Color(255, 255, 255));
         TfName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TfName.setText("Name");
+        TfName.setText("  Name");
         TfName.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         TfName.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        TfName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TfNameActionPerformed(evt);
-            }
-        });
-        jPanel2.add(TfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 250, 40));
+        getContentPane().add(TfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 250, 40));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Personal data");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText(" Access data");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         TfPhoneNumeber.setBackground(new java.awt.Color(255, 255, 255));
-        TfPhoneNumeber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TfPhoneNumeber.setText("Phone Number");
         TfPhoneNumeber.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        TfPhoneNumeber.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        TfPhoneNumeber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TfPhoneNumeberActionPerformed(evt);
-            }
-        });
-        jPanel2.add(TfPhoneNumeber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 250, 40));
+        try {
+            TfPhoneNumeber.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(TfPhoneNumeber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 250, 40));
 
-        JpFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 500));
-        JpFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/ImagenFondo.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 71, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-        );
-
-        JpFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 440, 470));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JpFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/image2_360x680_high_dpi.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarActionPerformed
-
-        //Traer datos ingresados
-        String email = TfEmail.getText();
-        String number=TfPhoneNumeber.getText();
-        String name=TfName.getText();
-        
-        //Traemos los datos en un arreglo de chart y como get password para que los datos no sean inmutables
-        char[] passArr = TfPassword.getPassword();
-        char[] confArr = TfConfig.getPassword();
-
-        //Creamos los string de contraseñas
-        String pass = new String(passArr);
-        String confirm = new String(confArr);
-
-        //Lipiamos los arrays
-        java.util.Arrays.fill(passArr, '\0');
-        java.util.Arrays.fill(confArr, '\0');
-        
-        //Resivimos el resultado del controlador del metodo registrar
-        var result = registerUserController.registrar(email, pass, confirm,number,name);
-        
-        //validamos si el resultado es diferente a ok y mostramos mensaje por pantalla
-        if (!result.ok) {
-            //Generamos el Joption para indicarle al usario que su operación fue fallida
-            JOptionPane.showMessageDialog(this,result.message,"Registro",JOptionPane.ERROR_MESSAGE);
-            limpiarCampos();//Limpiamos los campos del formulario
-            return;
-        }
-        
-        //Le idicamos al usuario que la operación fue exitosa
-        JOptionPane.showMessageDialog(this, "Usuario creado correctamente!", "Registro", JOptionPane.INFORMATION_MESSAGE);
-        this.dispose();
-    }//GEN-LAST:event_BtnRegistrarActionPerformed
 
     /**
      * Metodo para limpiar los campos del formulario
@@ -221,25 +144,53 @@ public class JfRegistrar extends javax.swing.JFrame {
         TfPhoneNumeber.setText("");
         TfName.setText("");
     }
-    private void TfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TfEmailActionPerformed
-    
+
     /**
      * Metodo para visualizar el login cuando se cierra registro
-     * @param evt 
+     *
+     * @param evt
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         login.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
-    private void TfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfNameActionPerformed
+    private void TfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TfNameActionPerformed
+    }//GEN-LAST:event_TfEmailActionPerformed
 
-    private void TfPhoneNumeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPhoneNumeberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TfPhoneNumeberActionPerformed
+    private void BtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegistrarActionPerformed
+        //Traer datos ingresados
+        String email = TfEmail.getText();
+        String number = TfPhoneNumeber.getText();
+        String name = TfName.getText();
+
+        //Traemos los datos en un arreglo de chart y como get password para que los datos no sean inmutables
+        char[] passArr = TfPassword.getPassword();
+        char[] confArr = TfConfig.getPassword();
+
+        //Creamos los string de contraseñas
+        String pass = new String(passArr);
+        String confirm = new String(confArr);
+
+        //Lipiamos los arrays
+        java.util.Arrays.fill(passArr, '\0');
+        java.util.Arrays.fill(confArr, '\0');
+
+        //Resivimos el resultado del controlador del metodo registrar
+        Result<Void> result = authController.register(email, pass, confirm, number, name);
+
+        //validamos si el resultado es diferente a ok y mostramos mensaje por pantalla
+        if (!result.ok) {
+            //Generamos el Joption para indicarle al usario que su operación fue fallida
+            JOptionPane.showMessageDialog(this, result.message, "Registro", JOptionPane.ERROR_MESSAGE);
+            limpiarCampos();//Limpiamos los campos del formulario
+            return;
+        }
+
+        //Le idicamos al usuario que la operación fue exitosa
+        JOptionPane.showMessageDialog(this, "Usuario creado correctamente!", "Registro", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_BtnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,16 +218,14 @@ public class JfRegistrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnRegistrar;
-    private javax.swing.JPanel JpFondo;
     private javax.swing.JPasswordField TfConfig;
     private javax.swing.JTextField TfEmail;
     private javax.swing.JTextField TfName;
     private javax.swing.JPasswordField TfPassword;
-    private javax.swing.JTextField TfPhoneNumeber;
+    private javax.swing.JFormattedTextField TfPhoneNumeber;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

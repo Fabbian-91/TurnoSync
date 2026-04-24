@@ -4,41 +4,41 @@
  */
 package server.model;
 
-/**
- *
- * @author Fabian
- */
+import java.time.LocalDateTime;
+
 public class Cliente {
 
-    //Atributos del cliente
-    private int idCliente;
+    private Long idCliente;
     private String nombre;
+    private String telefono;
     private String email;
 
-    //Contructor vacío
+    private LocalDateTime createdAt;
+    private String createdBy;
+    private LocalDateTime updatedAt;
+    private String updatedBy;
+    private LocalDateTime deletedAt;
+    private String deletedBy;
+    private Boolean isDeleted;
+
+    // 🔹 Constructor vacío
     public Cliente() {
     }
 
-    /**
-     * Generar clientes
-     *
-     * @param idCliente
-     * @param nombre
-     * @param telefono
-     * @param email
-     */
-    public Cliente(int idCliente, String nombre, String email) {
+    // 🔹 Constructor con parámetros (opcional pero útil)
+    public Cliente(Long idCliente, String nombre, String telefono, String email) {
         this.idCliente = idCliente;
         this.nombre = nombre;
+        this.telefono = telefono;
         this.email = email;
     }
 
-    // Getters y Setters
-    public int getIdCliente() {
+    // 🔹 Getters y Setters
+    public Long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -49,7 +49,15 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -58,4 +66,59 @@ public class Cliente {
         this.email = email;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public String getDeletedBy() {
+        return deletedBy;
+    }
+
+    public void setDeletedBy(String deletedBy) {
+        this.deletedBy = deletedBy;
+    }
+
+    public Boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 }

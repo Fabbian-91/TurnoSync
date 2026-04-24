@@ -3,9 +3,50 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/app/Main.java</file>
-            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/dao/ConexionBD.java</file>
-            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JfLogin.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/gateway/ServerGateway.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/ProtocolDispatcher.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/SocketServer.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/service/TurnoService.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/controller/DashboardController.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFSolicitud.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFMisTurnos.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/gateway/SocketServerGateway.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/ClientManager.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/sesion/AppSession.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/ActionType.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFHistorial.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JDMantenimientoUsuario.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFBienvenida.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/service/AuthService.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/WorkerThread.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/network/ClientEventDispatcher.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/EstadoCuenta.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/TypeEvent.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFGestionTurnos.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/TipoSolicitud.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/TipoCard.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/Rol.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/common/enums/EstadoTurno.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFConfiguracion.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/MDIPrincipal.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JDMantenimientoPeticion.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFAtender.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JDMantenimientoTurno.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/view/JIFGestionUsers.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/network/SocketClient.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/network/ClientGateway.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/network/ClientConnection.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/Bootstrap/ClientBootstrap.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/client/controller/UserController.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/service/UsuarioService.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/dao/EmpleadoDAO.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/security/ClsTokenGenerator.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/RequestContext.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/network/RequestQueue.java</file>
+            <file>file:/C:/Users/Fabian/OneDrive%20-%20Universidad%20Fidélitas/Primer%20Cuatrimestre%202026/PROGRAMACIÓN%20CLIENTESERVIDOR%20CONCURRENTE/TurnoSync/src/server/model/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

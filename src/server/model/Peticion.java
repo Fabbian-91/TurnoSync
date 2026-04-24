@@ -1,55 +1,55 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package server.model;
 
+import common.enums.EstadoPeticion;
+import common.enums.TipoSolicitud;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- *
- * @author Fabian
- */
-public class Peticion {
+public class Peticion implements Serializable {
 
-    //Atributos de la petición
+    private static final long serialVersionUID = 1L;
+
     private int idPeticion;
-    private String tipo;
+    private TipoSolicitud tipo;
     private EstadoPeticion estado;
 
-    //Atributos de seguimietos
     private LocalDateTime creadaEn;
     private LocalDateTime procesadaEn;
     private LocalDateTime finalizadaEn;
 
-    //Atributos nulos
     private Usuario usuario;
-    private Turno turno;
+
     private String detalle;
 
-    // Constructor vacío
     public Peticion() {
+        this.creadaEn = LocalDateTime.now();
+        this.estado = EstadoPeticion.PENDIENTE;
     }
 
-    /**
-     * Generar petición
-     *
-     * @param idPeticion
-     * @param tipo
-     * @param estado
-     * @param creadaEn
-     * @param usuario
-     */
-    public Peticion(int idPeticion, String tipo, EstadoPeticion estado,
-            LocalDateTime creadaEn, Usuario usuario) {
+    public Peticion(int idPeticion, TipoSolicitud tipo, Usuario usuario, String detalle) {
         this.idPeticion = idPeticion;
         this.tipo = tipo;
-        this.estado = estado;
-        this.creadaEn = creadaEn;
         this.usuario = usuario;
+        this.detalle = detalle;
+        this.creadaEn = LocalDateTime.now();
+        this.estado = EstadoPeticion.PENDIENTE;
     }
 
-    // Getters y Setters
+    public void marcarEnProceso() {
+        this.estado = EstadoPeticion.EN_PROCESO;
+        this.procesadaEn = LocalDateTime.now();
+    }
+
+    public void completar() {
+        this.estado = EstadoPeticion.COMPLETADA;
+        this.finalizadaEn = LocalDateTime.now();
+    }
+
+    public void fallar() {
+        this.estado = EstadoPeticion.FALLIDA;
+        this.finalizadaEn = LocalDateTime.now();
+    }
+
     public int getIdPeticion() {
         return idPeticion;
     }
@@ -58,11 +58,11 @@ public class Peticion {
         this.idPeticion = idPeticion;
     }
 
-    public String getTipo() {
+    public TipoSolicitud getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoSolicitud tipo) {
         this.tipo = tipo;
     }
 
@@ -106,13 +106,6 @@ public class Peticion {
         this.usuario = usuario;
     }
 
-    public Turno getTurno() {
-        return turno;
-    }
-
-    public void setTurno(Turno turno) {
-        this.turno = turno;
-    }
 
     public String getDetalle() {
         return detalle;
@@ -121,5 +114,4 @@ public class Peticion {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
-
 }

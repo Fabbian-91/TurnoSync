@@ -1,38 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package server.model;
 
+import common.enums.EstadoTurno;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- *
- * @author Fabian
- */
-public class Turno {
-    //Atributos del turno
+public class Turno implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int idTurno;
     private LocalDate fecha;
     private LocalTime hora;
     private EstadoTurno estado;
-   
-    //Atributos nulos
-    private Cliente cliente;
-    private Empleado empleado;
-    
-    //Constructor vacío
+    private int idCliente;
+    private int idEmpleado;
+
     public Turno() {
     }
-    
-    /**
-     * Generar Turno
-     * @param idTurno
-     * @param fecha
-     * @param hora
-     * @param estado 
-     */
+
     public Turno(int idTurno, LocalDate fecha, LocalTime hora, EstadoTurno estado) {
         this.idTurno = idTurno;
         this.fecha = fecha;
@@ -40,7 +26,6 @@ public class Turno {
         this.estado = estado;
     }
 
-    // Getters y Setters
     public int getIdTurno() {
         return idTurno;
     }
@@ -73,19 +58,19 @@ public class Turno {
         this.estado = estado;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public int getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 }
